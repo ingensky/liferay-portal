@@ -97,11 +97,12 @@ public class PortletIdCodec {
 
 		int underlineCount = StringUtil.count(
 			userIdAndInstanceId, CharPool.UNDERLINE);
-
-		if (underlineCount > 1) {
-			throw new InvalidParameterException(
-				"User ID and instance ID has more than one underscore");
-		}
+		
+// 		Remove check for this case due to https://emdev-limited.atlassian.net/browse/KZM-311
+// 		if (underlineCount > 1) {
+// 			throw new InvalidParameterException(
+// 				"User ID and instance ID has more than one underscore");
+// 		}
 
 		if (underlineCount == 1) {
 			int index = userIdAndInstanceId.indexOf(CharPool.UNDERLINE);
